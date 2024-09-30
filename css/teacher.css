@@ -1,0 +1,1535 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans Thai";
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  --blue: #9F70FD;
+  --pink: #ED3E7D;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  background-color: #ED3E7D;
+  color: #fff;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.navheader {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.nav-links ul {
+  display: flex;
+}
+
+.nav-links li {
+  padding: 0 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover:after {
+  width: 100%;
+}
+
+.signup_button {
+  background-color: #9F70FD;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 25px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    padding: 0 20px;
+    gap: 1rem;
+  }
+
+  .navheader {
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    background-color: #ED3E7D;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 15px 0;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .burger {
+    height: 20px;
+  }
+
+  .burger div {
+    width: 19px;
+    height: 3px;
+
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+}
+
+.dropbtn {
+  background-color: #FF8911;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  gap: 15px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #FF8911;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  padding: 10px;
+  right: 10px;
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  background-color: #FF8911;
+  font-weight: bold;
+  min-width: 200px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  gap: 10px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+
+.box_1 {
+  background-image: linear-gradient(#ED3E7D, #FCFF92);
+  height: 842px;
+
+}
+
+.boxinbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 50px 20px;
+  gap: 3rem;
+
+}
+
+.text_box1 {
+  font-size: larger;
+  color: white;
+
+}
+
+.boxinbox img {
+  max-width: 100%;
+  height: auto;
+}
+
+.boxinbox h1 {
+  max-width: 100%;
+  font-size: 4.5vw;
+  height: auto;
+}
+
+.boxinbox p {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 520px) {
+  .box_1 {
+    height: 900px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .boxinbox {
+    flex-wrap: wrap;
+    position: relative;
+    text-align: center;
+  }
+
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 850px;
+  width: 100%;
+  gap: 20px;
+
+}
+
+
+.features {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  flex-wrap: wrap;
+  top: 850px;
+  width: 100%;
+  gap: 20px;
+
+}
+
+
+.feature {
+  max-width: 100%;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  width: 370px;
+  height: 174px;
+  border: 1px solid #D4D4D4;
+  border-radius: 20px;
+  padding: 0 20px;
+  background-color: white;
+}
+
+.text-feat {
+  text-align: left;
+}
+
+.text-feat h3 {
+  color: #9F70FD;
+  font-weight: bold;
+}
+
+.text-feat p {
+  color: #000000;
+}
+
+@media screen and (max-width: 777px) {
+  .feature {
+    max-width: 100%;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 150px;
+    border: 1px solid #D4D4D4;
+    border-radius: 20px;
+    padding: 0 20px;
+    background-color: white;
+  }
+
+  .text-feat h3 {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .text-feat p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 537px) {
+  .features {
+    top: 700px;
+  }
+}
+
+
+
+.courses__ {
+  text-align: center;
+  padding-top: 200px;
+
+}
+
+.courses__ h1 {
+  text-align: center;
+  padding-top: 50px;
+  font-weight: bolder;
+  color: #9F70FD;
+  font-size: 40px;
+}
+
+.courses {
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.course-card {
+  max-width: 100%;
+  text-align: left;
+  gap: 20px;
+  width: 360px;
+  height: 490px;
+  border: 1px solid #D4D4D4;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.checked {
+  color: orange;
+}
+
+.boximg-course {
+  max-width: 100%;
+  width: 360px;
+  height: 223px;
+  border-radius: top 20px;
+}
+
+.boximg-course img {
+  max-width: 100%;
+  height: auto;
+}
+
+.textboxcourse {
+  padding: 1% 6%;
+}
+
+.textboxcourse h5 {
+  color: #9F70FD;
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+.textboxcourse p {
+  color: #A3A3A3;
+}
+
+.rate-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.boxcoursebtn-seemore {
+  display: flex;
+  justify-content: center;
+}
+
+.coursebtn-seemore {
+  background-color: #FF8911;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 5px 20px;
+}
+
+@media screen and (max-width: 1150px) {
+  .courses__ {
+    padding-top: 250px;
+
+  }
+}
+
+@media screen and (max-width: 780px) {
+
+  .course-card {
+    width: 260px;
+    height: 350px;
+  }
+
+
+  .boximg-course {
+    height: 159.81px;
+  }
+
+  .textboxcourse h5 {
+    font-size: 16px;
+  }
+
+  .textboxcourse p {
+    font-size: 12px;
+  }
+
+}
+
+
+.program h1 {
+  text-align: center;
+  margin-top: 150px;
+  font-weight: bolder;
+  color: #9F70FD;
+  font-size: 40px;
+}
+
+.program img {
+  max-width: 100%;
+}
+
+.program-content {
+  text-align: left;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.program-content2 {
+  text-align: left;
+  padding: 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.program-content h5 {
+  color: #686666;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.program-content2 h5 {
+  color: #686666;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+
+@media screen and (max-width: 795px) {
+  .program-content2 {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1168px) {
+  .program {
+    margin-top: 350px;
+  }
+}
+
+.teachers h1 {
+  text-align: center;
+  font-size: 40px;
+  padding-top: 50px;
+  margin-top: 150px;
+  font-weight: bolder;
+  color: #9F70FD;
+}
+
+.box_teachers {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin-top: 150px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.teacher-card {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #dadada;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  max-width: 100%;
+}
+
+
+.imgteacher {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: -100px;
+}
+
+.imgteacher img {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 677px) {
+  .box_teachers {
+    gap: 100px;
+  }
+}
+
+
+
+footer {
+  background-color: #ED3E7D;
+  width: 100%;
+  height: 20px;
+}
+
+/* Program.php */
+
+
+
+
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  position: fixed;
+
+  
+}
+
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  color: #A3A3A3;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li a img {
+  width: 20px;
+  margin-right: 15px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #ED3E7D;
+  color: #fff;
+}
+
+
+
+@media screen and (max-width: 1609px) {
+  .sidebar {
+    position: sticky;
+    flex-direction:row;
+    width: 100%;
+    justify-content: center;
+    
+  }
+  .sidebar ul {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+
+/* mycourse */
+.containner_program {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-content {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-back,
+.btn-addcourse,
+.btn-addexercise {
+  padding: 10px 20px;
+  background-color: #9F70FD;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-back:hover,
+.btn-addcourse:hover,
+.btn-addexercise:hover {
+  background-color: #b592fb;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.boxcourse {
+  background-color: white;
+  border-radius: 8px;
+  max-height: 550px;
+  /* กำหนดความสูงสูงสุด */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* This makes the buttons stay at the bottom */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boxcourse:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.course-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.textboxcourse {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+}
+
+.course-subject {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.course-title {
+  font-size: 1.2rem;
+  color: #343a40;
+  margin: 10px 0;
+}
+
+.course-content {
+  color: #495057;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  overflow-y: auto;
+  /* เพิ่ม Scroll bar เมื่อข้อมูลยาวเกิน */
+  max-height: 100px;
+  /* กำหนดความสูงสูงสุดของเนื้อหา */
+}
+
+.flex-btn {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.btn-edit,
+.btn-remove {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 45%;
+  text-align: center;
+}
+
+.btn-remove {
+  background-color: #dc3545;
+}
+
+.btn-remove:hover {
+  background-color: #c82333;
+}
+
+.btn-edit:hover {
+  background-color: #0056b3;
+}
+
+.btn-infocourse {
+  padding: 8px 16px;
+  background-color: #FF8911;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-infocourse:hover {
+  background-color: #FDBF60;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* Make buttons stick at the bottom */
+  height: 100%;
+}
+
+.empty {
+  font-size: 1.2rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+
+
+/* ======================= Cards ====================== */
+.cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.cardBox .card {
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--pink);
+}
+
+.cardBox .card .cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+  font-size: 3.5rem;
+  color: var(--black2);
+}
+
+.cardBox .card:hover {
+  background: var(--pink);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+  color: var(--white);
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .cardBox {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .cardBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cardBox {
+    grid-template-columns: 1fr;
+  }
+  
+  .cardBox .card {
+    padding: 20px; /* ลด padding สำหรับขนาดหน้าจอเล็ก */
+  }
+
+  .cardBox .card .numbers {
+    font-size: 2rem; /* ปรับขนาดตัวเลข */
+  }
+
+  .cardBox .card .cardName {
+    font-size: 1rem; /* ปรับขนาดชื่อการ์ด */
+  }
+}
+
+
+
+
+/* ================== Order Details List ============== */
+.details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-gap: 30px;
+  /* margin-top: 10px; */
+}
+
+.details .recentOrders {
+  position: relative;
+  display: grid;
+  min-height: 50px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.details .cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.main-content h2 {
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.cardHeader h2 {
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.cardHeader h4 {
+  font-weight: 600;
+  color: var(--blue);
+}
+
+
+.details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  table-layout: fixed;
+  
+}
+
+.details .recentOrders table {
+  table-layout: auto; /* ยืดหยุ่นตามเนื้อหา */
+}
+
+.details table thead td {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.details .recentOrders table tr {
+  color: var(--black1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .recentOrders table tr:last-child {
+  border-bottom: none;
+}
+
+.details .recentOrders table tbody tr:hover {
+  background: var(--pink);
+  color: var(--white);
+}
+
+.details .recentOrders table tr td {
+  padding: 10px;
+}
+
+.details .recentOrders table tr td:last-child {
+  text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(1) {
+  text-align: start;
+}
+.details .recentOrders table tr td:nth-child(2) {
+  text-align: center;
+}
+
+.details .recentOrders table tr td:nth-child(3) {
+  text-align: center;
+}
+
+.details .recentOrders table td:nth-child(4) {
+  width: 120px;
+  text-align: center;
+}
+.details .recentOrders table td:nth-child(5) {
+  width: 120px;
+  text-align: center;
+}
+
+.status.delivered {
+  padding: 2px 4px;
+  background: #8de02c;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.pending {
+  padding: 2px 4px;
+  background: #e9b10a;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.return {
+  padding: 2px 4px;
+  background: #f00;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.inProgress {
+  padding: 2px 4px;
+  background: #1795ce;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.recentCustomers {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  padding: 20px;
+  background: var(--white);
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.recentCustomers .imgBx {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.recentCustomers .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recentCustomers table tr td {
+  padding: 12px 10px;
+}
+
+.recentCustomers table tr td h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2rem;
+}
+
+.recentCustomers table tr td h4 span {
+  font-size: 14px;
+  color: var(--black2);
+}
+
+.recentCustomers table tr:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.recentCustomers table tr:hover td h4 span {
+  color: var(--white);
+}
+
+
+
+@media (max-width: 768px) {
+  .details {
+    padding: 10px; /* ลด padding สำหรับขนาดหน้าจอเล็ก */
+  }
+
+  .recentOrders,
+  .recentCustomers {
+    min-height: auto; /* ยืดหยุ่นความสูงตามเนื้อหา */
+  }
+
+  .details table {
+    font-size: 0.9rem; /* ปรับขนาดตัวอักษรในตาราง */
+  }
+
+  .details table td {
+    padding: 8px; /* ลด padding ในตาราง */
+  }
+
+  .recentCustomers .imgBx {
+    width: 30px; /* ปรับขนาดของภาพลูกค้า */
+    height: 30px;
+  }
+
+  .recentCustomers table tr td {
+    padding: 10px; /* ลด padding สำหรับขนาดหน้าจอเล็ก */
+  }
+
+  .recentCustomers table tr td h4 {
+    font-size: 14px; /* ปรับขนาดชื่อของลูกค้า */
+  }
+}
+
+@media (max-width: 480px) {
+  .details {
+    grid-gap: 15px; /* ลดระยะห่างระหว่างบล็อก */
+  }
+
+  .details table {
+    font-size: 0.8rem; /* ปรับขนาดตัวอักษรในตาราง */
+  }
+
+  .details .recentOrders table td,
+  .recentCustomers table tr td {
+    padding: 5px; /* ลด padding ในตาราง */
+  }
+
+  .recentCustomers .imgBx {
+    width: 25px; /* ปรับขนาดของภาพลูกค้า */
+    height: 25px;
+  }
+}
+
+
+/* สไตล์สำหรับปุ่มทั้งหมด */
+
+.btn-group {
+  display: inline-flex;
+  justify-content: space-between;
+  /* กระจายปุ่มให้มีช่องว่างที่เท่ากัน */
+  align-items: center;
+  /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+  gap: 5px;
+  /* เพิ่มระยะห่างระหว่างปุ่ม */
+  white-space: nowrap;
+  /* ป้องกันการตัดข้อความ */
+  
+}
+
+
+button {
+  padding: 6px 10px;
+  font-size: 12px;
+  /* ปรับขนาดฟอนต์ให้พอดีกับพื้นที่ */
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+}
+
+.btn-view {
+  background-color: #007bff;
+}
+
+.btn-view:hover {
+  background-color: #0056b3;
+}
+
+.btn-confirm {
+  background-color: #28a745;
+}
+
+.btn-confirm:hover {
+  background-color: #218838;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* ปรับไอคอนในปุ่ม */
+button i {
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+/* ฟอร์มสำหรับเพิ่มคอร์ส */
+.video-form {
+  background-color: #fff;
+  /* สีพื้นหลังขาว */
+  padding: 20px;
+  /* ระยะห่างภายใน */
+  border-radius: 10px;
+  /* มุมโค้งมน */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* เพิ่มเงา */
+  border: 1px solid #ddd;
+  /* กรอบรอบๆ */
+}
+
+.video-form h2 {
+  font-weight: bold;
+  color: #333;
+  /* สีหัวข้อ */
+}
+
+.video-form .form-control {
+  border-radius: 5px;
+  /* เพิ่มมุมโค้งให้ฟิลด์ป้อนข้อมูล */
+  box-shadow: none;
+  /* ลบเงาที่ไม่ต้องการ */
+  border: 1px solid #ccc;
+  /* กำหนดเส้นขอบ */
+}
+
+.video-form .form-control:focus {
+  border-color: #007bff;
+  /* สีเส้นขอบเมื่อ focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  /* เพิ่มเงาเมื่อ focus */
+}
+
+.video-form .btn-primary {
+  background-color: #007bff;
+  /* สีปุ่ม */
+  border-color: #007bff;
+  /* สีเส้นขอบปุ่ม */
+  padding: 10px 20px;
+  /* ขนาดปุ่ม */
+  font-size: 16px;
+  /* ขนาดฟอนต์ของปุ่ม */
+  border-radius: 5px;
+  /* มุมโค้งปุ่ม */
+  transition: background-color 0.3s ease;
+  /* เพิ่ม transition */
+}
+
+.video-form .btn-primary:hover {
+  background-color: #0056b3;
+  /* สีปุ่มเมื่อ hover */
+}
+
+
+/* ฟอร์มสำหรับเพิ่มแบบฝึกหัด */
+.container {
+  max-width: 700px;
+}
+
+h3 {
+  font-weight: 600;
+  color: #9F70FD;
+}
+
+/* กรอบและเงาสำหรับฟอร์มทั้งหมด */
+.form-wrapper {
+  border: 1px solid #ddd;
+  /* เพิ่มกรอบสีเทาอ่อน */
+  border-radius: 10px;
+  /* ขอบมน */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* เพิ่มเงา */
+  padding: 20px;
+  background-color: #fff;
+  /* พื้นหลังขาว */
+}
+
+/* กรอบและเงาสำหรับบล็อกคำถาม */
+.question-block {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  /* กรอบ */
+  border-radius: 10px;
+  /* ขอบมน */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* เพิ่มเงา */
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* เพิ่มระยะห่างในแต่ละบล็อก */
+.input-group {
+  margin-bottom: 10px;
+}
+
+/* ปรับแต่งปุ่มให้ดูสวยขึ้น */
+#add-question-btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: 500;
+}
+
+.btn-primary {
+  font-weight: 600;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .form-wrapper {
+    padding: 15px;
+  }
+
+  .question-block {
+    padding: 15px;
+  }
+
+  .btn-primary {
+    font-size: 16px;
+  }
+}
+
+
+/* course_detail */
+.container_detail {
+  max-width: 1000px;
+  /* ขยายขนาดของ container */
+}
+
+.course-image_1 {
+  max-height: 500px;
+  /* ขยายความสูงของรูปภาพ */
+  object-fit: cover;
+  /* ทำให้รูปภาพครอบคลุมพื้นที่เต็ม */
+}
+
+.course_detaii h1 {
+  font-size: 1.5rem;
+  /* ขยายขนาดตัวอักษรของชื่อคอร์ส */
+  color: #9F70FD;
+  margin-top: 20px;
+}
+
+
+
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.btn-primary i {
+  margin-right: 10px;
+}
+
+.btn-lg {
+  padding: 12px 25px;
+  font-size: 20px;
+}
+
+.mt-4 {
+  margin-top: 20px;
+}
+
+
+/* โครงสร้างหลัก */
+.watch-video {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding: 40px;
+  border-radius: 15px;
+}
+
+
+.view-video-button {
+  text-align: center;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+
+/* Responsive - สำหรับหน้าจอขนาดกลาง (tablet) */
+@media (max-width: 1060px) {
+  .watch-video {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .view-video-button button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+  .view-video-button {
+    text-align: center;
+  }
+}
+
+/* Responsive - สำหรับหน้าจอขนาดเล็ก (mobile) */
+@media (max-width: 480px) {
+  .watch-video {
+    padding: 15px;
+  }
+
+  .course-title1 {
+    font-size: 1.5rem;
+  }
+
+  .course-subject1 {
+    font-size: 1rem;
+  }
+
+  .view-video-button button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+/* รูปภาพคอร์ส */
+.course-cover-image {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ปุ่มดูวิดีโอ */
+
+
+.view-video-button button {
+  padding: 12px 25px;
+  text-align: center;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.view-video-button button:hover {
+  background-color: #ff4c4c;
+}
+
+/* รายละเอียดของคอร์ส */
+.course-details1 {
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.course-title1 {
+  font-size: 2rem;
+  color: #9F70FD;
+  margin-bottom: 10px;
+  word-break: break-word;
+  white-space: normal; 
+  line-height: 1.2; 
+}
+
+.course-subject1 {
+  font-size: 1.2rem;
+  color: #838383;
+  margin-bottom: 15px;
+}
+
+.course-description1 {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+
+/* modal teacher */
+
+.modal-body {
+  display: flex; /* ใช้ flexbox เพื่อจัดเรียงรูปภาพและรายละเอียด */
+  align-items: center; /* จัดแนวแนวตั้งให้ตรงกลาง */
+}
+
+.modal-image {
+  margin-right: 20px; /* ระยะห่างระหว่างรูปภาพและรายละเอียด */
+}
+
+.modal-image img {
+  max-width: 100px; /* ขนาดสูงสุดของรูปภาพ */
+  border-radius: 10px; /* ทำมุมรูปภาพให้โค้ง */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้รูปภาพ */
+}
+
+.modal-details {
+  flex-grow: 1; /* ให้พื้นที่นี้ขยายเต็มที่ */
+}
+
+.modal-footer {
+  display: flex; /* ใช้ flexbox เพื่อจัดการปุ่ม */
+  justify-content: flex-end; /* จัดให้ปุ่มอยู่ด้านขวา */
+}
+
+.modal-close {
+  padding: 10px 20px; /* ขนาดของปุ่ม */
+  background-color: #007bff; /* สีพื้นหลังปุ่ม */
+  color: white; /* สีตัวอักษร */
+  border: none; /* ไม่มีกรอบ */
+  border-radius: 5px; /* ทำมุมให้โค้ง */
+  cursor: pointer; /* แสดงว่าเป็นปุ่ม */
+  transition: background-color 0.3s; /* เอฟเฟกต์การเปลี่ยนสี */
+}
+
+.modal-close:hover {
+  background-color: #0056b3; /* สีพื้นหลังเมื่อวางเมาส์ */
+}

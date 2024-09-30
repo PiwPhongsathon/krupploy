@@ -1,0 +1,407 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans Thai";
+  text-decoration: none;
+  list-style: none;
+}
+
+
+/* styles.css */
+nav {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  background-color: #ED3E7D;
+  color: #fff;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.navheader {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.nav-links ul {
+  display: flex;
+}
+
+.nav-links li {
+  padding: 0 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover:after {
+  width: 100%;
+  background-color: white;
+}
+
+.nav-links a:hover {
+  color: #ffffff; /* Change this color to your desired hover color */
+  text-decoration: none; /* Optional: Remove underline on hover */
+}
+
+.signup_button {
+  background-color: #9F70FD;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 25px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 794px) {
+  nav {
+    flex-direction: row;
+    padding: 0 20px;
+    gap: 1rem;
+  }
+
+  .navheader {
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    background-color: #ED3E7D;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 15px 0;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .burger {
+    height: 20px;
+  }
+
+  .burger div {
+    width: 19px;
+    height: 3px;
+
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .signup_button {
+    font-size: 10px;
+  }
+}
+
+
+.container {
+  padding: 80px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container h2 {
+  color: #9F70FD;
+  font-size: 30px;
+}
+
+.largebox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: 20px;
+  padding: 20px;
+
+}
+
+.box_allcourse {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 70px;
+  gap: 10px;
+}
+
+.boxcourse {
+  width: 273px;
+  height: 440px;
+  border: 1px solid #D4D4D4;
+  border-radius: 20px;
+}
+
+.box_headercourse {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.inputcourse from {
+  max-width: 100%;
+}
+
+.inputcourse input {
+  border-radius: 20px;
+  width: 610px;
+  height: 35px;
+  border: 1px solid #D9D9D9;
+  padding: 20px;
+}
+
+
+.inputcourse p {
+  color: #989898;
+}
+
+.inputcourse button {
+  border-radius: 20px;
+  width: 100px;
+  height: 35px;
+  color: white;
+  font-weight: bold;
+  background-color: #9F70FD;
+  border: 1px solid #D9D9D9;
+}
+
+.category-subject {
+  width: 100%;
+}
+
+
+.textboxcourse {
+  padding: 1% 6%;
+}
+
+.textboxcourse h4 {
+  color: #9F70FD;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.textboxcourse p {
+  color: #A3A3A3;
+  font-size: 12px;
+}
+
+.rate-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checked {
+  color: orange;
+}
+
+
+
+.select-menu {
+  width: 380px;
+  margin: 14px auto;
+  position: absolute;
+}
+
+.select-menu .select-btn {
+  display: flex;
+  height: 34px;
+  background: #fff;
+  padding: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 8px;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-btn i {
+  font-size: 25px;
+  transition: 0.3s;
+  color: #9F70FD;
+}
+
+.select-menu.active .select-btn i {
+  transform: rotate(-180deg);
+}
+
+.select-menu .options {
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.select-menu.active .options {
+  display: block;
+}
+
+.form-select .option {
+  display: flex;
+  height: 55px;
+  cursor: pointer;
+  padding: 0 16px;
+  border-radius: 8px;
+  align-items: center;
+  background: #fff;
+}
+
+.form-select .option:hover {
+  background: #F2F2F2;
+}
+
+.option i {
+  font-size: 25px;
+  margin-right: 12px;
+}
+
+.option .option-text {
+  font-size: 18px;
+  color: #333;
+}
+
+.pop-up {
+  display: flex;
+  justify-content: center;
+}
+
+
+@media screen and (max-width: 796px) {
+
+  .inputcourse input {
+    height: 35px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .category-subject {
+    width: 100%;
+  }
+
+  .inputcourse {
+    text-align: center;
+    width: 100%;
+  }
+
+
+  .inputcourse button {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 409px) {
+  .select-menu {
+    width: 200px;
+  }
+}
+
+.miniboxcourse {
+  width: 241px;
+  height: 89px;
+  border: 1px solid #D4D4D4;
+  border-radius: 20px;
+}
+
+.textboxcourse {
+  padding: 1% 6%;
+}
+
+.card-body h4 {
+  color: #9F70FD;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-body p {
+  color: #A3A3A3;
+  font-size: 12px;
+}
+
+.rate-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checked {
+  color: orange;
+}
+
+.modal {
+  z-index: 1050 !important; /* ความสำคัญเพิ่มขึ้น */
+}
+
+.modal-backdrop {
+  z-index: 1040; /* กำหนด z-index ของ backdrop */
+}
