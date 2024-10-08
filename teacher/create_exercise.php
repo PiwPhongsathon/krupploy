@@ -36,26 +36,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($insert_exercise_query) === TRUE) {
             $exercise_id = $conn->insert_id; // เก็บ ID ของแบบฝึกหัดใหม่ที่เพิ่งสร้าง
 
-            // เพิ่มคำถามและตัวเลือกคำตอบที่ถูกส่งมาจากฟอร์ม
-            foreach ($_POST['questions'] as $index => $question_text) {
-                // เพิ่มคำถามในตาราง exercise_questions
-                $insert_question_query = "INSERT INTO exercise_questions (exercise_id, question_text) VALUES ('$exercise_id', '$question_text')";
-                $conn->query($insert_question_query);
-                $question_id = $conn->insert_id; // เก็บ ID ของคำถามที่เพิ่งสร้าง
+            // ตรวจสอบว่ามีการส่งคำถามและตัวเลือกมาและไม่เป็น null
+            if (isset($_POST['questions']) && is_array($_POST['questions']) && isset($_POST['choices']) && is_array($_POST['choices'])) {
+                // เพิ่มคำถามและตัวเลือกคำตอบที่ถูกส่งมาจากฟอร์ม
+                foreach ($_POST['questions'] as $index => $question_text) {
+                    // เพิ่มคำถามในตาราง exercise_questions
+                    $insert_question_query = "INSERT INTO exercise_questions (exercise_id, question_text) VALUES ('$exercise_id', '$question_text')";
+                    $conn->query($insert_question_query);
+                    $question_id = $conn->insert_id; // เก็บ ID ของคำถามที่เพิ่งสร้าง
 
-                // เพิ่มตัวเลือกคำตอบในตาราง exercise_choices
-                foreach ($_POST['choices'][$index] as $choice_index => $choice_text) {
-                    $is_correct = ($_POST['correct_choice'][$index] == $choice_index) ? 1 : 0;
-                    $insert_choice_query = "INSERT INTO exercise_choices (question_id, choice_text, is_correct) VALUES ('$question_id', '$choice_text', '$is_correct')";
-                    $conn->query($insert_choice_query);
+                    // ตรวจสอบว่ามีตัวเลือกคำตอบสำหรับคำถามนี้
+                    if (isset($_POST['choices'][$index]) && is_array($_POST['choices'][$index])) {
+                        // เพิ่มตัวเลือกคำตอบในตาราง exercise_choices
+                        foreach ($_POST['choices'][$index] as $choice_index => $choice_text) {
+                            $is_correct = ($_POST['correct_choice'][$index] == $choice_index) ? 1 : 0;
+                            $insert_choice_query = "INSERT INTO exercise_choices (question_id, choice_text, is_correct) VALUES ('$question_id', '$choice_text', '$is_correct')";
+                            $conn->query($insert_choice_query);
+                        }
+                    }
                 }
+            } else {
+                $_SESSION['error'] = "ไม่มีคำถามหรือคำตอบถูกส่งมา";
             }
+
             $_SESSION['success'] = "แบบฝึกหัดถูกสร้างสำเร็จ!";
         } else {
             $_SESSION['error'] = "เกิดข้อผิดพลาดในการสร้างแบบฝึกหัด: " . $conn->error;
         }
     }
 }
+
 $conn->close();
 ?>
 

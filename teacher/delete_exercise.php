@@ -13,6 +13,11 @@ if (isset($_POST['exercise_id']) && isset($_POST['course_id'])) {
     $exercise_id = $_POST['exercise_id'];
     $course_id = $_POST['course_id'];
 
+    // ลบข้อมูลในตาราง exercise_choices ที่เชื่อมโยงกับคำถาม
+    $delete_choices_query = "DELETE FROM exercise_choices WHERE question_id IN 
+                            (SELECT id FROM exercise_questions WHERE exercise_id = '$exercise_id')";
+    mysqli_query($conn, $delete_choices_query);
+
     // ลบข้อมูลในตาราง exercise_answers ที่เชื่อมโยงกับคำถาม
     $delete_answers_query = "DELETE FROM exercise_answers WHERE question_id IN 
                             (SELECT id FROM exercise_questions WHERE exercise_id = '$exercise_id')";
@@ -21,6 +26,10 @@ if (isset($_POST['exercise_id']) && isset($_POST['course_id'])) {
     // ลบคำถามที่เกี่ยวข้องกับแบบฝึกหัดนี้
     $delete_questions_query = "DELETE FROM exercise_questions WHERE exercise_id = '$exercise_id'";
     mysqli_query($conn, $delete_questions_query);
+
+    // ลบข้อมูลในตาราง exercise_results ที่เกี่ยวข้องกับแบบฝึกหัดนี้
+    $delete_results_query = "DELETE FROM exercise_results WHERE exercise_id = '$exercise_id'";
+    mysqli_query($conn, $delete_results_query);
 
     // ลบแบบฝึกหัดจากฐานข้อมูล
     $delete_exercise_query = "DELETE FROM exercises WHERE id = '$exercise_id'";
