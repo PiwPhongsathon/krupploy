@@ -5,8 +5,7 @@ require_once "../components/database.php";
 if (isset($_GET['id'])) {
     $course_id = $_GET['id'];
 
-
-    // ดึงข้อมูลชื่อไฟล์รูปภาพและวิดีโอที่เกี่ยวข้องกับคอร์ส
+    // ดึงข้อมูลชื่อไฟล์รูปภาพที่เกี่ยวข้องกับคอร์ส
     $query = "SELECT cover_image FROM courses WHERE id = $course_id";
     $result = mysqli_query($conn, $query);
 
@@ -17,9 +16,12 @@ if (isset($_GET['id'])) {
             if (file_exists($cover_path)) {
                 unlink($cover_path);
             }
-
         }
     }
+
+    // ลบข้อมูลบทเรียนที่เกี่ยวข้องกับคอร์ส
+    $delete_lessons_query = "DELETE FROM lessons WHERE course_id = $course_id";
+    mysqli_query($conn, $delete_lessons_query); // ลบบทเรียน
 
     // ตรวจสอบว่าคอร์สนี้มีอยู่ในฐานข้อมูลหรือไม่
     $query = "DELETE FROM courses WHERE id = $course_id";

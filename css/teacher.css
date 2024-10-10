@@ -514,6 +514,7 @@ nav a {
     text-align: center;
   }
 }
+
 @media screen and (max-width: 1168px) {
   .program {
     margin-top: 350px;
@@ -590,7 +591,7 @@ footer {
   display: flex;
   position: fixed;
 
-  
+
 }
 
 
@@ -628,11 +629,12 @@ footer {
 @media screen and (max-width: 1609px) {
   .sidebar {
     position: sticky;
-    flex-direction:row;
+    flex-direction: row;
     width: 100%;
     justify-content: center;
-    
+
   }
+
   .sidebar ul {
     display: flex;
     text-align: center;
@@ -881,17 +883,20 @@ footer {
   .cardBox {
     grid-template-columns: 1fr;
   }
-  
+
   .cardBox .card {
-    padding: 20px; /* ลด padding สำหรับขนาดหน้าจอเล็ก */
+    padding: 20px;
+    /* ลด padding สำหรับขนาดหน้าจอเล็ก */
   }
 
   .cardBox .card .numbers {
-    font-size: 2rem; /* ปรับขนาดตัวเลข */
+    font-size: 2rem;
+    /* ปรับขนาดตัวเลข */
   }
 
   .cardBox .card .cardName {
-    font-size: 1rem; /* ปรับขนาดชื่อการ์ด */
+    font-size: 1rem;
+    /* ปรับขนาดชื่อการ์ด */
   }
 }
 
@@ -945,11 +950,12 @@ footer {
   border-collapse: collapse;
   margin-top: 10px;
   table-layout: fixed;
-  
+
 }
 
 .details .recentOrders table {
-  table-layout: auto; /* ยืดหยุ่นตามเนื้อหา */
+  table-layout: auto;
+  /* ยืดหยุ่นตามเนื้อหา */
 }
 
 .details table thead td {
@@ -985,6 +991,7 @@ footer {
 .details .recentOrders table tr td:nth-child(1) {
   text-align: start;
 }
+
 .details .recentOrders table tr td:nth-child(2) {
   text-align: center;
 }
@@ -997,6 +1004,7 @@ footer {
   width: 120px;
   text-align: center;
 }
+
 .details .recentOrders table td:nth-child(5) {
   width: 120px;
   text-align: center;
@@ -1093,52 +1101,63 @@ footer {
 
 @media (max-width: 768px) {
   .details {
-    padding: 10px; /* ลด padding สำหรับขนาดหน้าจอเล็ก */
+    padding: 10px;
+    /* ลด padding สำหรับขนาดหน้าจอเล็ก */
   }
 
   .recentOrders,
   .recentCustomers {
-    min-height: auto; /* ยืดหยุ่นความสูงตามเนื้อหา */
+    min-height: auto;
+    /* ยืดหยุ่นความสูงตามเนื้อหา */
   }
 
   .details table {
-    font-size: 0.9rem; /* ปรับขนาดตัวอักษรในตาราง */
+    font-size: 0.9rem;
+    /* ปรับขนาดตัวอักษรในตาราง */
   }
 
   .details table td {
-    padding: 8px; /* ลด padding ในตาราง */
+    padding: 8px;
+    /* ลด padding ในตาราง */
   }
 
   .recentCustomers .imgBx {
-    width: 30px; /* ปรับขนาดของภาพลูกค้า */
+    width: 30px;
+    /* ปรับขนาดของภาพลูกค้า */
     height: 30px;
   }
 
   .recentCustomers table tr td {
-    padding: 10px; /* ลด padding สำหรับขนาดหน้าจอเล็ก */
+    padding: 10px;
+    /* ลด padding สำหรับขนาดหน้าจอเล็ก */
   }
 
   .recentCustomers table tr td h4 {
-    font-size: 14px; /* ปรับขนาดชื่อของลูกค้า */
+    font-size: 14px;
+    /* ปรับขนาดชื่อของลูกค้า */
   }
 }
 
 @media (max-width: 480px) {
   .details {
-    grid-gap: 15px; /* ลดระยะห่างระหว่างบล็อก */
+    grid-gap: 15px;
+    /* ลดระยะห่างระหว่างบล็อก */
   }
 
   .details table {
-    font-size: 0.8rem; /* ปรับขนาดตัวอักษรในตาราง */
+    font-size: 0.8rem;
+    /* ปรับขนาดตัวอักษรในตาราง */
   }
 
   .details .recentOrders table td,
   .recentCustomers table tr td {
-    padding: 5px; /* ลด padding ในตาราง */
+    padding: 5px;
+    /* ลด padding ในตาราง */
   }
 
   .recentCustomers .imgBx {
-    width: 25px; /* ปรับขนาดของภาพลูกค้า */
+    width: 25px;
+    /* ปรับขนาดของภาพลูกค้า */
     height: 25px;
   }
 }
@@ -1156,7 +1175,7 @@ footer {
   /* เพิ่มระยะห่างระหว่างปุ่ม */
   white-space: nowrap;
   /* ป้องกันการตัดข้อความ */
-  
+
 }
 
 
@@ -1411,6 +1430,7 @@ h3 {
     padding: 15px;
     font-size: 1.1rem;
   }
+
   .view-video-button {
     text-align: center;
   }
@@ -1477,8 +1497,8 @@ h3 {
   color: #9F70FD;
   margin-bottom: 10px;
   word-break: break-word;
-  white-space: normal; 
-  line-height: 1.2; 
+  white-space: normal;
+  line-height: 1.2;
 }
 
 .course-subject1 {
@@ -1497,39 +1517,88 @@ h3 {
 /* modal teacher */
 
 .modal-body {
-  display: flex; /* ใช้ flexbox เพื่อจัดเรียงรูปภาพและรายละเอียด */
-  align-items: center; /* จัดแนวแนวตั้งให้ตรงกลาง */
+  display: flex;
+  /* ใช้ flexbox เพื่อจัดเรียงรูปภาพและรายละเอียด */
+  align-items: center;
+  /* จัดแนวแนวตั้งให้ตรงกลาง */
 }
 
 .modal-image {
-  margin-right: 20px; /* ระยะห่างระหว่างรูปภาพและรายละเอียด */
+  margin-right: 20px;
+  /* ระยะห่างระหว่างรูปภาพและรายละเอียด */
 }
 
 .modal-image img {
-  max-width: 100px; /* ขนาดสูงสุดของรูปภาพ */
-  border-radius: 10px; /* ทำมุมรูปภาพให้โค้ง */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้รูปภาพ */
+  max-width: 100px;
+  /* ขนาดสูงสุดของรูปภาพ */
+  border-radius: 10px;
+  /* ทำมุมรูปภาพให้โค้ง */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* เพิ่มเงาให้รูปภาพ */
 }
 
 .modal-details {
-  flex-grow: 1; /* ให้พื้นที่นี้ขยายเต็มที่ */
+  flex-grow: 1;
+  /* ให้พื้นที่นี้ขยายเต็มที่ */
 }
 
 .modal-footer {
-  display: flex; /* ใช้ flexbox เพื่อจัดการปุ่ม */
-  justify-content: flex-end; /* จัดให้ปุ่มอยู่ด้านขวา */
+  display: flex;
+  /* ใช้ flexbox เพื่อจัดการปุ่ม */
+  justify-content: flex-end;
+  /* จัดให้ปุ่มอยู่ด้านขวา */
 }
 
 .modal-close {
-  padding: 10px 20px; /* ขนาดของปุ่ม */
-  background-color: #007bff; /* สีพื้นหลังปุ่ม */
-  color: white; /* สีตัวอักษร */
-  border: none; /* ไม่มีกรอบ */
-  border-radius: 5px; /* ทำมุมให้โค้ง */
-  cursor: pointer; /* แสดงว่าเป็นปุ่ม */
-  transition: background-color 0.3s; /* เอฟเฟกต์การเปลี่ยนสี */
+  padding: 10px 20px;
+  /* ขนาดของปุ่ม */
+  background-color: #007bff;
+  /* สีพื้นหลังปุ่ม */
+  color: white;
+  /* สีตัวอักษร */
+  border: none;
+  /* ไม่มีกรอบ */
+  border-radius: 5px;
+  /* ทำมุมให้โค้ง */
+  cursor: pointer;
+  /* แสดงว่าเป็นปุ่ม */
+  transition: background-color 0.3s;
+  /* เอฟเฟกต์การเปลี่ยนสี */
 }
 
 .modal-close:hover {
-  background-color: #0056b3; /* สีพื้นหลังเมื่อวางเมาส์ */
+  background-color: #0056b3;
+  /* สีพื้นหลังเมื่อวางเมาส์ */
+}
+
+.lesson-block {
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 20px;
+}
+
+.accordion-item {
+  margin-bottom: 1rem; /* เพิ่มระยะห่างด้านล่าง */
+}
+.accordion-button {
+  background-color: #fff;
+  /* เปลี่ยนสีพื้นหลังให้เป็นสีขาว */
+  color: #000;
+  /* เปลี่ยนสีตัวอักษรให้เป็นสีดำ */
+  border: 0.5px solid #dee2e6;
+  /* เพิ่มขอบ */
+  max-width: 100%;
+  
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #fff;
+  /* สีพื้นหลังเมื่อเปิด */
+  color: #000;
+  /* สีตัวอักษรเมื่อเปิด */
+}
+
+.accordion-body {
+  background-color: #fff;
+  /* สีพื้นหลังของเนื้อหาบทเรียน */
 }

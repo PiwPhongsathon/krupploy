@@ -131,7 +131,7 @@ if (isset($_SESSION['userid'])) {
                         echo '<img src="../uploads/profiles/' . $_SESSION['profile_pic'] . '" alt="Profile Picture" class="profile-pic">';
                     } else {
                         // ถ้าไม่มีรูปโปรไฟล์ ใช้รูปภาพค่าเริ่มต้น
-                        echo '<img src="../pic-5.jpg" alt="Default Profile Picture" class="profile-pic">';
+                        echo '<img src="pic-5.jpg" alt="" class="profile-pic">';
                     }
                     ?>
                     คุณครู

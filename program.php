@@ -55,7 +55,7 @@ $result = mysqli_query($conn, $query);
                         // คำนวณเวลาหมดอายุ
                         $confirmation_date = new DateTime($row['confirmation_date']);
                         $expiry_time = clone $confirmation_date; // ทำสำเนาเพื่อไม่ให้แก้ไขวันที่ดั้งเดิม
-                        $expiry_time->modify('+30 minutes'); // ปรับตามเวลาที่ต้องการ
+                        $expiry_time->modify('+365 days'); // ปรับตามเวลาที่ต้องการ
                         $current_time = new DateTime();
 
                         // คำนวณเวลาที่เหลือในวินาที
@@ -79,9 +79,17 @@ $result = mysqli_query($conn, $query);
                                     var x_<?= $row['id']; ?> = setInterval(function() {
                                         var now = new Date().getTime();
                                         var distance = countDownDate_<?= $row['id']; ?> - now;
+
+                                        // คำนวณวัน ชั่วโมง นาที และ วินาที
+                                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                                         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                                         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                                        document.getElementById('timer-<?= $row['id']; ?>').innerHTML = minutes + 'm ' + seconds + 's ';
+
+                                        // แสดงผล "วัน ชั่วโมง นาที วินาที"
+                                        document.getElementById('timer-<?= $row['id']; ?>').innerHTML = days + ' วัน ' + hours + ' ชั่วโมง ' + minutes + ' นาที ' + seconds + ' วินาที ';
+
+                                        // ถ้าเวลาหมดแล้ว
                                         if (distance < 0) {
                                             clearInterval(x_<?= $row['id']; ?>);
                                             document.getElementById('timer-<?= $row['id']; ?>').innerHTML = 'หมดเวลาการใช้งาน';

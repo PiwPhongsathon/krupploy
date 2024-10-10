@@ -15,6 +15,8 @@ if (isset($_GET['course_id'])) {
     // ดึงข้อมูลคอร์สจากฐานข้อมูล
     $query = "SELECT * FROM courses WHERE id = '$course_id'";
     $result = mysqli_query($conn, $query);
+    $lessons_query = "SELECT * FROM lessons WHERE course_id = '$course_id'";
+    $lessons_result = mysqli_query($conn, $lessons_query);
 
     // ตรวจสอบว่าพบคอร์สหรือไม่
     if ($result && mysqli_num_rows($result) > 0) {
@@ -46,14 +48,23 @@ if (isset($_GET['course_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รายละเอียดคอร์ส - KruPPloy</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap JS (รวม Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="../css/teacher.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -76,9 +87,7 @@ if (isset($_GET['course_id'])) {
                     <div class="image">
                         <img src="../uploads/covers/<?php echo $course['cover_image']; ?>" alt="course image" class="course-cover-image">
                     </div>
-                    <a href="watch_video.php?course_id=<?php echo $course_id; ?>" class="view-video-button">
-                        <button>ดูวิดีโอ</button>
-                    </a>
+
                 </div>
 
                 <div class="course-details1">
@@ -88,6 +97,36 @@ if (isset($_GET['course_id'])) {
                     <p class="course-description1"><strong>ราคา:</strong> <span class="text-danger"><?= number_format($course['price'], 2); ?> บาท</span></p>
                 </div>
             </section>
+            
+            <div class="lessons-dropdown">
+                <h4>บทเรียนในคอร์สนี้</h4>
+                <?php if (mysqli_num_rows($lessons_result) > 0): ?>
+                    <div class="accordion" id="lessonsAccordion">
+                        <?php while ($lesson = mysqli_fetch_assoc($lessons_result)): ?>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading<?= $lesson['id']; ?>">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $lesson['id']; ?>" aria-expanded="true" aria-controls="collapse<?= $lesson['id']; ?>">
+                                        <?= $lesson['lesson_title']; ?>
+                                    </button>
+                                </h2>
+                                <div id="collapse<?= $lesson['id']; ?>" class="accordion-collapse collapse" aria-labelledby="heading<?= $lesson['id']; ?>" data-bs-parent="#lessonsAccordion">
+                                    <div class="accordion-body">
+                                        <?= $lesson['lesson_content']; ?>
+                                        <a href="watch_video.php?course_id=<?php echo $course_id; ?>&lesson_id=<?php echo $lesson['id']; ?>" class="view-video-button">
+                                            <button>เริ่มเรียน</button>
+                                        </a>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
+                <?php else: ?>
+                    <p>ยังไม่มีบทเรียนในคอร์สนี้</p>
+                <?php endif; ?>
+            </div>
         </div>
 
         <div class="details">

@@ -9,8 +9,11 @@ if (!isset($_SESSION['userid'])) {
 }
 
 // ดึงข้อมูลของคอร์สที่กำลังจะดูวิดีโอ
-if (isset($_GET['course_id'])) {
+if (isset($_GET['course_id']) && isset($_GET['lesson_id'])) {
     $course_id = intval($_GET['course_id']);
+    $lesson_id = intval($_GET['lesson_id']); // ดึง lesson_id
+
+    // ดึงข้อมูลคอร์ส
     $query = "SELECT * FROM courses WHERE id = $course_id";
     $result = mysqli_query($conn, $query);
 
@@ -20,11 +23,23 @@ if (isset($_GET['course_id'])) {
         echo "ไม่พบคอร์สนี้!";
         exit();
     }
+
+    // ดึงข้อมูลบทเรียนเฉพาะที่ระบุ
+    $lesson_query = "SELECT * FROM lessons WHERE id = $lesson_id AND course_id = $course_id"; // เพิ่มเงื่อนไขให้ตรงกับ course_id
+    $lesson_result = mysqli_query($conn, $lesson_query);
+
+    if (mysqli_num_rows($lesson_result) > 0) {
+        $lesson = mysqli_fetch_assoc($lesson_result);
+    } else {
+        echo "ไม่พบบทเรียนนี้!";
+        exit();
+    }
 } else {
-    echo "ไม่พบคอร์สที่ต้องการ!";
+    echo "ไม่พบคอร์สหรือบทเรียนที่ต้องการ!";
     exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,41 +47,55 @@ if (isset($_GET['course_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Video Player</title>
+    <title>KruPPloy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+    
     <style>
         /* ตั้งค่าพื้นหลังเป็นรูปภาพ */
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Noto Sans Thai";
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('../imagehappy.png'); /* ใส่ path รูปภาพ */
+            background-image: url('../imagehappy.png');
+            /* ใส่ path รูปภาพ */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            /* เพิ่มการจัดเรียงแนวตั้ง */
         }
 
         .video-player {
-            background-color: rgba(245, 168, 142, 0.9); /* ทำให้มีความโปร่งแสง */
+            background-color: rgba(245, 168, 142, 0.9);
+            /* ทำให้มีความโปร่งแสง */
             padding: 10px;
             border-radius: 10px;
             width: 1200px;
             height: 700px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             position: relative;
+            margin-bottom: 20px;
+            /* เพิ่มระยะห่างด้านล่าง */
         }
 
-        iframe, video {
+        iframe,
+        video {
             width: 100%;
             height: 90%;
             border-radius: 10px;
+            
         }
 
         .controls {
-            background-color: rgba(248, 193, 125, 0.9); /* ทำให้โปร่งแสง */
+            background-color: rgba(248, 193, 125, 0.9);
+            /* ทำให้โปร่งแสง */
             padding: 10px;
             display: flex;
             justify-content: space-between;
@@ -129,27 +158,55 @@ if (isset($_GET['course_id'])) {
             border-radius: 5px;
             cursor: pointer;
         }
-    </style>
 
+        .lesson-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .lesson-content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 90%;
+            /* เปลี่ยนจาก 1100px เป็น 90% */
+            max-width: 1100px;
+            /* เพิ่ม max-width เพื่อควบคุมขนาดสูงสุด */
+            text-align: center;
+            /* กำหนดความกว้างของเนื้อหาบทเรียน */
+        }
+
+        @media (max-width: 768px) {
+            .video-player {
+                width: 95%;
+                /* ขนาดที่เล็กลงในหน้าจอเล็ก */
+            }
+        }
+    </style>
 </head>
 
 <body>
     <button class="back-button" onclick="goBack()">ย้อนกลับ</button>
+    <div class="lesson-content">
+        <strong><?= $lesson['lesson_title']; ?></strong>
+    </div>
 
     <div class="video-player">
         <?php
         // ตรวจสอบลิงก์วิดีโอและใช้ iframe สำหรับ Google Drive หรือ Dropbox
-        if (strpos($course['video_link'], 'drive.google.com') !== false) {
+        if (strpos($lesson['video_link'], 'drive.google.com') !== false) {
             // ลิงก์ Google Drive
-            $video_link = str_replace("view?usp=sharing", "preview", $course['video_link']);
+            $video_link = str_replace("view?usp=sharing", "preview", $lesson['video_link']);
             echo '<iframe src="' . $video_link . '" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-        } elseif (strpos($course['video_link'], 'dropbox.com') !== false) {
+        } elseif (strpos($lesson['video_link'], 'dropbox.com') !== false) {
             // ลิงก์ Dropbox
-            $video_link = str_replace("?dl=0", "?raw=1", $course['video_link']);
+            $video_link = str_replace("?dl=0", "?raw=1", $lesson['video_link']);
             echo '<iframe src="' . $video_link . '" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
         } else {
             // ลิงก์อื่นๆ เช่นลิงก์ตรงหรือที่ไม่ใช่ Google Drive/Dropbox
-            echo '<video src="' . $course['video_link'] . '" controls></video>';
+            echo '<video src="' . $lesson['video_link'] . '" controls></video>';
         }
         ?>
         <div class="controls">
@@ -162,7 +219,6 @@ if (isset($_GET['course_id'])) {
     </div>
 
     <script>
-
         function goBack() {
             window.history.back();
         }

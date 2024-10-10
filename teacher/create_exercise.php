@@ -237,17 +237,42 @@ $conn->close();
 
         <label class="form-label">ตัวเลือกคำตอบ</label>
         <div class="choices">
-            <input type="radio" name="correct_choice[${questionIndex}]" value="0" required> 
-            <input type="text" class="form-control mb-2" name="choices[${questionIndex}][]" placeholder="ตัวเลือกที่ 1" required>
-
-            <input type="radio" name="correct_choice[${questionIndex}]" value="1" required> 
-            <input type="text" class="form-control mb-2" name="choices[${questionIndex}][]" placeholder="ตัวเลือกที่ 2" required>
-
-            <input type="radio" name="correct_choice[${questionIndex}]" value="2" required> 
-            <input type="text" class="form-control mb-2" name="choices[${questionIndex}][]" placeholder="ตัวเลือกที่ 3" required>
-
-            <input type="radio" name="correct_choice[${questionIndex}]" value="3" required> 
-            <input type="text" class="form-control mb-2" name="choices[${questionIndex}][]" placeholder="ตัวเลือกที่ 4" required>
+        <div class="input-group mb-2">
+                                <div class="input-group-text">
+                                    <input type="radio" name="correct_choice[${questionIndex}]" value="0" required>
+                                </div>
+                                <input type="text" class="form-control" name="choices[${questionIndex}][]" placeholder="ตัวเลือกที่ 1" required>
+                                <div class="invalid-feedback">
+                                    กรุณากรอกตัวเลือกที่ 1.
+                                </div>
+                            </div>
+        <div class="input-group mb-2">
+                                <div class="input-group-text">
+                                    <input type="radio" name="correct_choice[${questionIndex}]" value="1" required>
+                                </div>
+                                <input type="text" class="form-control" name="choices[${questionIndex}][]" placeholder="ตัวเลือกที่ 2" required>
+                                <div class="invalid-feedback">
+                                    กรุณากรอกตัวเลือกที่ 2.
+                                </div>
+                            </div>
+        <div class="input-group mb-2">
+                                <div class="input-group-text">
+                                    <input type="radio" name="correct_choice[${questionIndex}]" value="2" required>
+                                </div>
+                                <input type="text" class="form-control" name="choices[${questionIndex}][]" placeholder="ตัวเลือกที่ 3" required>
+                                <div class="invalid-feedback">
+                                    กรุณากรอกตัวเลือกที่ 3.
+                                </div>
+                            </div>
+        <div class="input-group mb-2">
+                                <div class="input-group-text">
+                                    <input type="radio" name="correct_choice[${questionIndex}]" value="3" required>
+                                </div>
+                                <input type="text" class="form-control" name="choices[${questionIndex}][]" placeholder="ตัวเลือกที่ 4" required>
+                                <div class="invalid-feedback">
+                                    กรุณากรอกตัวเลือกที่ 4.
+                                </div>
+                           
         </div>
         <button type="button" class="btn btn-danger delete-question-btn mt-2">ลบคำถาม</button>
     `;

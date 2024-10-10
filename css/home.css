@@ -894,6 +894,12 @@ nav a {
   border-radius: 15px;
 }
 
+.view-video-button {
+  text-align: center;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
 /* Responsive - สำหรับหน้าจอขนาดกลาง (tablet) */
 @media (max-width: 1060px) {
   .watch-video {
@@ -905,6 +911,9 @@ nav a {
     width: 100%;
     padding: 15px;
     font-size: 1.1rem;
+  }
+  .view-video-button {
+    text-align: center;
   }
 }
 
@@ -936,20 +945,17 @@ nav a {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ปุ่มดูวิดีโอ */
-.view-video-button {
-  text-align: center;
-  margin-top: 20px;
-}
 
 .view-video-button button {
   padding: 12px 25px;
+  text-align: center;
   background-color: #ff6b6b;
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
   cursor: pointer;
+  margin-top: 20px;
   transition: background-color 0.3s ease;
 }
 
@@ -1007,6 +1013,7 @@ nav a {
 
 .exercise-btn:hover {
   background-color: #218838;
+  color: #fff;
 }
 
 .no-exercise-message {
@@ -1325,3 +1332,34 @@ nav a {
 .copyright a:hover {
   text-decoration: underline; /* เส้นใต้เมื่อ Hover */
 }
+
+
+.accordion-item {
+  margin-bottom: 1rem; /* เพิ่มระยะห่างด้านล่าง */
+}
+.accordion-button {
+  background-color: #fff;
+  /* เปลี่ยนสีพื้นหลังให้เป็นสีขาว */
+  color: #000;
+  /* เปลี่ยนสีตัวอักษรให้เป็นสีดำ */
+  border: 0.5px solid #dee2e6;
+  /* เพิ่มขอบ */
+  max-width: 100%;
+  
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #fff;
+  /* สีพื้นหลังเมื่อเปิด */
+  color: #000;
+  /* สีตัวอักษรเมื่อเปิด */
+}
+
+.accordion-body {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  /* สีพื้นหลังของเนื้อหาบทเรียน */
+}
+
+

@@ -10,6 +10,10 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($conn, $query);
     $course = mysqli_fetch_assoc($result);
 
+    // ดึงข้อมูลบทเรียนที่เกี่ยวข้องกับคอร์ส
+    $lesson_query = "SELECT * FROM lessons WHERE course_id = $course_id";
+    $lesson_result = mysqli_query($conn, $lesson_query);
+
     if (isset($_POST['submit'])) {
         $course_name = $_POST['course_name'];
         $course_name = filter_var($course_name, FILTER_SANITIZE_STRING);
@@ -41,27 +45,11 @@ if (isset($_GET['id'])) {
             $update_cover = '';
         }
 
-        if (!empty($_FILES['video_clip']['name'])) {
-            $video_clip = $_FILES['video_clip']['name'];
-            $video_clip = filter_var($video_clip, FILTER_SANITIZE_STRING);
-            $video_ext = pathinfo($video_clip, PATHINFO_EXTENSION);
-            $rename_video = unique_id() . '.' . $video_ext;
-            $video_tmp_name = $_FILES['video_clip']['tmp_name'];
-            $video_folder = '../uploads/videos/' . $rename_video;
-
-            // Move uploaded file
-            move_uploaded_file($video_tmp_name, $video_folder);
-
-            // Update with new video
-            $update_video = ", video_clip = '$rename_video'";
-        } else {
-            $update_video = '';
-        }
-
         // Update data in the database
-        $query = "UPDATE courses SET course_name = '$course_name', course_content = '$course_content', subject = '$subject', price = '$price' $update_cover $update_video WHERE id = $course_id";
+        $query = "UPDATE courses SET course_name = '$course_name', course_content = '$course_content', subject = '$subject', price = '$price' $update_cover WHERE id = $course_id";
 
         $result = mysqli_query($conn, $query);
+
 
         if ($result) {
             $_SESSION['success'] = "Course updated successfully";
@@ -69,11 +57,44 @@ if (isset($_GET['id'])) {
             $_SESSION['error'] = "Something went wrong";
         }
     }
+
+    // จัดการการอัปเดตบทเรียน
+    if (isset($_POST['submit'])) {
+        $lesson_titles = $_POST['lesson_title'];
+        $lesson_contents = $_POST['lesson_content'];
+        $lesson_videos = $_POST['video_link'];
+
+        foreach ($lesson_titles as $index => $title) {
+            if (!empty($title) && isset($lesson_contents[$index]) && isset($lesson_videos[$index])) {
+                $lesson_title = filter_var($title, FILTER_SANITIZE_STRING);
+                $lesson_content = filter_var($lesson_contents[$index], FILTER_SANITIZE_STRING);
+                $lesson_video = filter_var($lesson_videos[$index], FILTER_SANITIZE_URL);
+
+                // ดึง id ของบทเรียนจากฐานข้อมูล
+                $lesson_id_query = "SELECT id FROM lessons WHERE course_id = $course_id LIMIT 1 OFFSET $index";
+                $lesson_id_result = mysqli_query($conn, $lesson_id_query);
+                $lesson_id_row = mysqli_fetch_assoc($lesson_id_result);
+                $lesson_id = $lesson_id_row['id'];
+
+                // อัปเดตบทเรียน
+                $update_lesson_query = "UPDATE lessons SET lesson_title = '$lesson_title', lesson_content = '$lesson_content', video_link = '$lesson_video' WHERE id = $lesson_id";
+                $update_result = mysqli_query($conn, $update_lesson_query);
+
+                if (!$update_result) {
+                    echo "Error updating lesson: " . mysqli_error($conn);
+                }
+            }
+        }
+
+
+        $_SESSION['success'] = "Lessons updated successfully";
+    }
 } else {
     echo "No course ID provided";
     exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -135,20 +156,77 @@ if (isset($_GET['id'])) {
                         <label for="cover_image" class="form-label">ภาพปกคลิป</label>
                         <input type="file" name="cover_image" id="cover_image" accept="image/*" class="form-control">
                     </div>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="video_link" class="form-label">ลิงก์คลิปวีดีโอ (ไม่สามารถเปลี่ยนได้)</label>
                         <input type="url" name="video_link" id="video_link" value="<?= $course['video_link']; ?>" class="form-control" readonly>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" name="submit" id="updateCourseBtn" class="btn btn-primary">อัปเดตคอร์ส</button>
-                    </div>
+                    </div> -->
+
+                    <section class="lesson-form mt-5">
+                        <h4 class="text-center">จัดการบทเรียน</h4>
+                        <form action="" method="post" id="lessonForm">
+                            <div id="lesson-blocks">
+                                <?php
+                                $lesson_index = 1;
+                                $lesson_count = mysqli_num_rows($lesson_result); // ตรวจสอบจำนวนบทเรียน
+                                if ($lesson_count > 0) {
+                                    while ($lesson = mysqli_fetch_assoc($lesson_result)) {
+                                ?>
+                                        <div class="lesson-block mb-3">
+                                            <label for="lesson_title_<?= $lesson_index ?>" class="form-label">ชื่อบทเรียนที่ <?= $lesson_index ?><span class="text-danger">*</span></label>
+                                            <input type="text" name="lesson_title[]" id="lesson_title_<?= $lesson_index ?>" maxlength="100" required placeholder="กรอกชื่อบทเรียน" class="form-control" value="<?= $lesson['lesson_title']; ?>">
+                                            <div class="invalid-feedback">กรุณากรอกชื่อบทเรียน.</div>
+                                            <label for="lesson_content_<?= $lesson_index ?>" class="form-label mt-2">เนื้อหาบทเรียนที่ <?= $lesson_index ?><span class="text-danger">*</span></label>
+                                            <textarea name="lesson_content[]" id="lesson_content_<?= $lesson_index ?>" required placeholder="กรอกเนื้อหาบทเรียน" class="form-control" rows="5"><?= $lesson['lesson_content']; ?></textarea>
+                                            <div class="invalid-feedback">กรุณากรอกเนื้อหาบทเรียน.</div>
+                                            <label for="video_link_<?= $lesson_index ?>" class="form-label">ลิงก์คลิปวีดีโอ (ไม่สามารถเปลี่ยนได้)</label>
+                                            <input type="url" name="video_link[]" id="video_link_<?= $lesson_index ?>" value="<?= htmlspecialchars($lesson['video_link']); ?>" class="form-control" readonly>
+                                        </div>
+                                    <?php
+                                        $lesson_index++;
+                                    }
+                                    ?>
+                                    <!-- <div class="text-center">
+                                        <button type="submit" name="update_lessons" class="btn btn-secondary">อัปเดตคอร์สและบทเรียน</button>
+                                    </div> -->
+                                <?php
+                                } else {
+                                    echo '<p class="text-center">ไม่มีบทเรียนให้จัดการ</p>'; // แสดงข้อความเมื่อไม่มีบทเรียน
+                                }
+                                ?>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" name="submit" id="updateCourseBtn" class="btn btn-primary">อัปเดตคอร์สและบทเรียน</button>
+                            </div>
+                        </form>
+                    </section>
+
                 </form>
             </div>
+
+
         </section>
+
     </div>
 
     <script src="../js/navbar.js"></script>
     <script src="../js/dropdownmenu.js"></script>
+
+    <script>
+        (function() {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })();
+    </script>
 
     <?php if (isset($_SESSION['success'])): ?>
         <script>
