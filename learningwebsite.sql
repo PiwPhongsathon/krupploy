@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2024 at 02:56 PM
+-- Generation Time: Oct 10, 2024 at 06:50 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,7 +51,8 @@ INSERT INTO `courses` (`id`, `cover_image`, `video_link`, `course_name`, `course
 (76, '66ea3ecd6da30.png', 'https://drive.google.com/file/d/1atzxLh9g5GHClD_Z3or43GoTtmcUdSnJ/preview', 'คณิตศาสตร์ เรื่อง เครื่องหมายมากกว่าน้อยกว่าหรือเท่ากับ', 'จำนวน 2 จำนวน อาจมีค่าเท่ากันหรือไม่เท่ากัน สามารถเปรียบเทียบจำนวนได้โดยใช้เครื่องหมายสัญลักษณ์ ดังนี้\r\n\r\n    =    เครื่องหมายเท่ากับ        ≠    เครื่องหมายไม่เท่ากับ\r\n\r\n    >    เครื่องหมายมากกว่า            89\r\n\r\n    2. กรณีที่จำนวนหลักเท่ากัน ให้ดูตัวเลขตัวแรกทางซ้ายมือเปรียบเทียบกัน เช่น\r\n\r\n        545    ', 'คณิตศาสตร์', 500.00, 6, 0),
 (77, '66ea453835bb1.png', 'https://drive.google.com/file/d/1atzxLh9g5GHClD_Z3or43GoTtmcUdSnJ/preview', 'เรียนรู้พยัญชนะไทย', 'เรียนรู้พยัญชนะไทย\r\n\r\nสาระสำคัญ/ความคิดรวมยอด\r\n           พยัญชนะไทย ก-ฮ ประกอบไปด้วย 44 ตัว ที่มีรูปแบบตัวอักษร คล้ายกัน และเสียงของตัวอักษร\r\nที่เหมือนกันและแตกต่างกัน\r\n\r\nตัวชี้วัด/จุดประสงค์การเรียนรู้\r\n  \r\n\r\n \r\n\r\n         1 ด้านความรู้ ความเข้าใจ (K)\r\n\r\n                    - บอกชื่อพยัญชนะไทยได้\r\n\r\n           2 ด้านทักษะ/กระบวนการ (P)\r\n\r\n                    - อ่านและเขียนพยัญชนะไทยได้\r\n\r\n            3 ด้านคุณลักษณะ เจตคติ ค่านิยม (A)\r\n\r\n                   - เห็นความสำคัญของการอ่านและเขียนพยัญชนะไทย\r\n', 'ภาษาไทย', 250.00, 6, 0),
 (78, '66ea4626d35b5.png', 'https://drive.google.com/file/d/1atzxLh9g5GHClD_Z3or43GoTtmcUdSnJ/preview', 'Nice to Meet You', 'การทักทาย การแนะนำตัวและการทำความรู้จักเพื่อนใหม่ มีความสำคัญที่ผู้พูดและผู้ฟังจำเป็นต้องสื่อสารให้ถูกต้อง เพื่อความเข้าใจที่ตรงกันและถูกต้องเหมาะสมตามวัฒนธรรมของเจ้าของภาษา', 'ภาษาอังกฤษ', 500.00, 6, 0),
-(79, '66ea55caae95e.png', 'https://drive.google.com/file/d/1atzxLh9g5GHClD_Z3or43GoTtmcUdSnJ/preview', '123123', '13123123', 'ภาษาอังกฤษ', 123.00, 6, 0);
+(79, '66ea55caae95e.png', 'https://drive.google.com/file/d/1atzxLh9g5GHClD_Z3or43GoTtmcUdSnJ/preview', '123123', '13123123', 'ภาษาอังกฤษ', 123.00, 6, 0),
+(87, '4GoOrqYlPLPG6u1852Wp.png', NULL, 'Hello! How Are You?', 'Where does it come from?\r\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &#34;de Finibus Bonorum et Malorum&#34; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, &#34;Lorem ipsum dolor sit amet..&#34;, comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from &#34;de Finibus Bonorum et Malorum&#34; by Cicero are also reproduced in their exact or', 'ภาษาอังกฤษ', 150.00, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,8 @@ INSERT INTO `course_purchases` (`id`, `student_id`, `course_id`, `purchase_date`
 (75, 4, 76, '2024-09-18 11:08:48', '66ea5250cc2ea.png', 'ยืนยันแล้ว', '2024-09-18 11:09:04', '2024-09-18 11:19:04', 500),
 (76, 4, 78, '2024-09-18 11:20:31', '66ea550fd6afc.png', 'ยืนยันแล้ว', '2024-09-18 11:21:08', '2024-09-18 11:31:08', 500),
 (80, 14, 77, '2024-10-08 19:11:56', '6705218cb170a.png', 'ยืนยันแล้ว', '2024-10-08 19:12:20', '2024-10-08 19:22:20', 250),
-(81, 4, 77, '2024-10-08 19:27:33', '67052535e1e8c.png', 'ยืนยันแล้ว', '2024-10-08 19:27:52', '2024-10-08 19:37:52', 250);
+(81, 4, 77, '2024-10-08 19:27:33', '67052535e1e8c.png', 'ยืนยันแล้ว', '2024-10-08 19:27:52', '2024-10-08 19:37:52', 250),
+(83, 4, 87, '2024-10-10 22:45:56', '6707f6b456670.png', 'ยืนยันแล้ว', '2024-10-10 22:46:07', '2024-10-10 22:56:07', 123);
 
 -- --------------------------------------------------------
 
@@ -113,7 +115,8 @@ INSERT INTO `course_ratings` (`id`, `user_id`, `course_id`, `rating`, `created_a
 (8, 4, 10, 5, '2024-09-17 13:41:51'),
 (9, 4, 77, 5, '2024-09-18 03:44:01'),
 (10, 4, 78, 5, '2024-09-18 04:22:20'),
-(11, 14, 77, 5, '2024-10-08 12:13:12');
+(11, 14, 77, 5, '2024-10-08 12:13:12'),
+(12, 4, 76, 1, '2024-10-10 16:18:22');
 
 -- --------------------------------------------------------
 
@@ -472,7 +475,31 @@ INSERT INTO `exercise_results` (`id`, `user_id`, `exercise_id`, `score`, `comple
 (44, 4, 5, 0, '2024-09-17 17:56:36', '2024-09-17 17:56:36'),
 (45, 4, 28, 1, '2024-09-18 04:09:36', '2024-09-18 04:09:36'),
 (46, 4, 28, 2, '2024-09-18 04:22:49', '2024-09-18 04:22:49'),
-(47, 4, 30, 0, '2024-09-18 04:27:16', '2024-09-18 04:27:16');
+(47, 4, 30, 0, '2024-09-18 04:27:16', '2024-09-18 04:27:16'),
+(60, 4, 28, 1, '2024-10-10 16:18:14', '2024-10-10 16:18:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lessons`
+--
+
+CREATE TABLE `lessons` (
+  `id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `lesson_title` varchar(255) NOT NULL,
+  `lesson_content` text DEFAULT NULL,
+  `video_link` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `lessons`
+--
+
+INSERT INTO `lessons` (`id`, `course_id`, `lesson_title`, `lesson_content`, `video_link`, `created_at`) VALUES
+(4, 87, '(1) My Clothes ', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'https://drive.google.com/file/d/1atzxLh9g5GHClD_Z3or43GoTtmcUdSnJ/view?usp=sharing', '2024-10-10 14:05:54'),
+(5, 87, '(2) What Does She Look Like', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'https://drive.google.com/file/d/1atzxLh9g5GHClD_Z3or43GoTtmcUdSnJ/view?usp=sharing', '2024-10-10 14:05:54');
 
 -- --------------------------------------------------------
 
@@ -498,7 +525,8 @@ CREATE TABLE `teacher_profiles` (
 
 INSERT INTO `teacher_profiles` (`id`, `user_id`, `nickname`, `full_name`, `faculty`, `university`, `created_at`, `status`, `confirmed_at`) VALUES
 (1, 6, 'พิว', 'นาย พงศธร จันทร์ทิพย์', 'เทคโนโลยีสารสนเทศ', 'มหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์', '2024-09-29 13:37:45', 'ยืนยันแล้ว', '2024-09-30 17:18:21'),
-(2, 18, 'Peter', 'ปีเตอร์ เดนแมน', 'แพทยศาสตร์', 'จุฬาลงกรณ์มหาวิทยาลัย', '2024-09-29 13:48:59', 'รอตรวจสอบ', NULL);
+(2, 18, 'Peter', 'ปีเตอร์ เดนแมน', 'แพทยศาสตร์', 'จุฬาลงกรณ์มหาวิทยาลัย', '2024-09-29 13:48:59', 'ยืนยันแล้ว', '2024-10-10 21:49:55'),
+(39, 21, 'ชื่อเล่นพิว', 'พงศธร จันทร์ทิพย์', 'วิศวกรรมศาสตร์', 'จุฬาลงกรณ์มหาวิทยาลัย', '2024-10-08 14:05:29', 'ยืนยันแล้ว', '2024-10-08 21:06:01');
 
 -- --------------------------------------------------------
 
@@ -536,7 +564,7 @@ INSERT INTO `user` (`id`, `email`, `password`, `fname`, `lname`, `role`, `profil
 (18, 'admin2@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', 'Admin', 'Test', 'teacher', '66e2f2b1bbc0a.jpg', '66e2f2fa4d69b.jpg', NULL, NULL),
 (19, 'phongsathonpiw@gmail.com', '', 'Phongsathon Chanthip', '', 'student', '', '', 'a2f62df7a3223b766a7e63fcfb15e444', '2024-09-30 15:00:05'),
 (20, 'kulwadee45@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', 'นิว', 'นิว', 'student', '', '', '3edee343d303b6cfeb63d1fe03c159e7', '2024-09-30 14:49:24'),
-(21, '1641051641128@rmutr.ac.th', 'c81e728d9d4c2f636f067f89cc14862c', 'พิว', 'พงศธร', 'student', '', '', '0d3c252cc6497093b375e4d2a1bc4a5a', '2024-09-30 15:18:47');
+(21, '1641051641128@rmutr.ac.th', 'c81e728d9d4c2f636f067f89cc14862c', 'พิว', 'พงศธร', 'teacher', '67053cc3dd97e.jfif', '67053cf1c4b39.jpg', '0d3c252cc6497093b375e4d2a1bc4a5a', '2024-09-30 15:18:47');
 
 --
 -- Indexes for dumped tables
@@ -597,6 +625,13 @@ ALTER TABLE `exercise_results`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `lessons`
+--
+ALTER TABLE `lessons`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `course_id` (`course_id`);
+
+--
 -- Indexes for table `teacher_profiles`
 --
 ALTER TABLE `teacher_profiles`
@@ -617,25 +652,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `course_purchases`
 --
 ALTER TABLE `course_purchases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `course_ratings`
 --
 ALTER TABLE `course_ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `exercises`
 --
 ALTER TABLE `exercises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `exercise_answers`
@@ -647,25 +682,31 @@ ALTER TABLE `exercise_answers`
 -- AUTO_INCREMENT for table `exercise_choices`
 --
 ALTER TABLE `exercise_choices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
 
 --
 -- AUTO_INCREMENT for table `exercise_questions`
 --
 ALTER TABLE `exercise_questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `exercise_results`
 --
 ALTER TABLE `exercise_results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
+-- AUTO_INCREMENT for table `lessons`
+--
+ALTER TABLE `lessons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `teacher_profiles`
 --
 ALTER TABLE `teacher_profiles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -697,6 +738,12 @@ ALTER TABLE `exercise_answers`
   ADD CONSTRAINT `exercise_answers_ibfk_1` FOREIGN KEY (`result_id`) REFERENCES `exercise_results` (`id`),
   ADD CONSTRAINT `exercise_answers_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `exercise_questions` (`id`),
   ADD CONSTRAINT `exercise_answers_ibfk_3` FOREIGN KEY (`choice_id`) REFERENCES `exercise_choices` (`id`);
+
+--
+-- Constraints for table `lessons`
+--
+ALTER TABLE `lessons`
+  ADD CONSTRAINT `lessons_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `teacher_profiles`
